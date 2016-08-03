@@ -2,6 +2,7 @@ using System.Web.Http;
 using WebActivatorEx;
 using PlaceToPlay.Api;
 using Swashbuckle.Application;
+using System;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -9,12 +10,15 @@ namespace PlaceToPlay.Api
 {
     public class SwaggerConfig
     {
-        public static void Register()
+        /// <summary>
+        /// Configures Swagger
+        /// </summary>
+        /// <param name="config"></param>
+        public static void Configure(HttpConfiguration config)
         {
             var thisAssembly = typeof(SwaggerConfig).Assembly;
 
-            GlobalConfiguration.Configuration 
-                .EnableSwagger(c =>
+            config.EnableSwagger(c =>
                     {
                         // By default, the service root url is inferred from the request used to access the docs.
                         // However, there may be situations (e.g. proxy and load-balanced environments) where this does not
@@ -153,7 +157,7 @@ namespace PlaceToPlay.Api
                         // those comments into the generated docs and UI. You can enable this by providing the path to one or
                         // more Xml comment files.
                         //
-                        //c.IncludeXmlComments(GetXmlCommentsPath());
+                        c.IncludeXmlComments(GetXmlCommentsPath());
 
                         // In contrast to WebApi, Swagger 2.0 does not include the query string component when mapping a URL
                         // to an action. As a result, Swashbuckle will raise an exception if it encounters multiple actions
@@ -214,6 +218,11 @@ namespace PlaceToPlay.Api
                         //
                         //c.EnableOAuth2Support("test-client-id", "test-realm", "Swagger UI");
                     });
+        }
+
+        private static string GetXmlCommentsPath()
+        {
+            return string.Format(@"{0}\bin\PlaceToPlay.Api.XML", System.AppDomain.CurrentDomain.BaseDirectory);
         }
     }
 }

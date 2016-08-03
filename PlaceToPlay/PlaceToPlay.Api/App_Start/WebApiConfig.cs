@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using PlaceToPlay.Api.Infrastructure.Logging;
 using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
 
 namespace PlaceToPlay.Api
 {
@@ -9,6 +8,7 @@ namespace PlaceToPlay.Api
     {
         public static void Register(HttpConfiguration config)
         {
+            config.Services.Add(typeof(IExceptionLogger), new NLogExceptionLogger());
             // Web API configuration and services
 
             // Web API routes
@@ -19,6 +19,8 @@ namespace PlaceToPlay.Api
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            SwaggerConfig.Configure(config);
         }
     }
 }

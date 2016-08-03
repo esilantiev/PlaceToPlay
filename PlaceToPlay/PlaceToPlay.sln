@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaceToPlay.Api", "PlaceToP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaceToPlay.Domain.Services", "PlaceToPlay.Domain.Services\PlaceToPlay.Domain.Services.csproj", "{6BABD24E-BE8D-45B5-A0AB-678535EBA60B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaceToPlay.Api.Infrastructure", "PlaceToPlay.Api.Infrastructure\PlaceToPlay.Api.Infrastructure.csproj", "{58DCA214-804A-4FBD-AD7A-ABE66B468B37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6BABD24E-BE8D-45B5-A0AB-678535EBA60B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BABD24E-BE8D-45B5-A0AB-678535EBA60B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BABD24E-BE8D-45B5-A0AB-678535EBA60B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58DCA214-804A-4FBD-AD7A-ABE66B468B37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58DCA214-804A-4FBD-AD7A-ABE66B468B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58DCA214-804A-4FBD-AD7A-ABE66B468B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58DCA214-804A-4FBD-AD7A-ABE66B468B37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
