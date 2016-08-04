@@ -4,7 +4,7 @@ using PlaceToPlay.Api;
 using Swashbuckle.Application;
 using System;
 
-[assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
+//[assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Configure")]
 
 namespace PlaceToPlay.Api
 {

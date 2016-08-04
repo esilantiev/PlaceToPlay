@@ -152,6 +152,10 @@
       <Project>{58dca214-804a-4fbd-ad7a-abe66b468b37}</Project>
       <Name>PlaceToPlay.Api.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PlaceToPlay.Domain.Services\PlaceToPlay.Domain.Services.csproj">
+      <Project>{6babd24e-be8d-45b5-a0ab-678535eba60b}</Project>
+      <Name>PlaceToPlay.Domain.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

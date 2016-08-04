@@ -1,4 +1,5 @@
-﻿using Swashbuckle.Swagger.Annotations;
+﻿using PlaceToPlay.Domain.Services.Abstract;
+using Swashbuckle.Swagger.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,11 @@ namespace PlaceToPlay.Api.Controllers
     [RoutePrefix("api/cities")]
     public class CitiesController : ApiController
     {
-        
-        public CitiesController()
+        private readonly ICityQueryService _cityQueryService;       
+
+        public CitiesController(ICityQueryService cityQueryService)
         {
+            _cityQueryService = cityQueryService;
         }
 
         /// <summary>
@@ -28,10 +31,12 @@ namespace PlaceToPlay.Api.Controllers
         /// <returns></returns>
         [Route("")]
         [SwaggerResponse(HttpStatusCode.OK)]
-        //[ResponseType(typeof(PagedList<ChannelDto>))]
+        [ResponseType(typeof(List<string>))]
         public HttpResponseMessage Get(int pageNumber=1, int pageSize = 10)
         {
-            return Request.CreateResponse(HttpStatusCode.OK);
+            var cities = _cityQueryService.Get(pageNumber, pageSize);
+
+            return Request.CreateResponse(HttpStatusCode.OK, cities);
         }
     }
 }
