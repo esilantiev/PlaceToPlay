@@ -68,6 +68,14 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
+    <None Include=".bin\bower.cmd" />
+    <None Include=".bin\git.cmd" />
+    <None Include=".bin\node.cmd" />
+    <None Include=".bin\npm.cmd" />
+    <Content Include=".bowerrc" />
+    <Content Include="bower.json" />
+    <Content Include="package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -80,8 +88,11 @@
     <Content Include="app\components\city\city.controller.js" />
     <Content Include="app\components\city\city.module.js" />
     <Content Include="app\routes.js" />
+    <Content Include="gruntfile.js" />
     <Content Include="index.html" />
     <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Web.config" />
