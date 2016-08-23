@@ -1,8 +1,6 @@
 ﻿using PlaceToPlay.Domain.Services.Abstract;
 using Swashbuckle.Swagger.Annotations;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -16,7 +14,7 @@ namespace PlaceToPlay.Api.Controllers
     [RoutePrefix("api/cities")]
     public class CitiesController : ApiController
     {
-        private readonly ICityQueryService _cityQueryService;       
+        private readonly ICityQueryService _cityQueryService;
 
         public CitiesController(ICityQueryService cityQueryService)
         {

@@ -1,0 +1,17 @@
+{
+  "name": "PlaceToPlay",
+  "version": "0.0.0",
+  "description": "PlaceToPlay.UI",
+  "authors": [
+    "SEA"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angularjs": "~1.5.8",
+    "bootstrap": "~3.3.7",
+    "jquery": "~3.1.0",
+    "requirejs": "~2.2.0",
+    "requirejs-domready": "~2.0.1",
+    "angular-route": "~1.5.8"
+  }
+}

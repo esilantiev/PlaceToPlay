@@ -8,9 +8,9 @@ using Unity.WebApi;
 namespace PlaceToPlay.Api
 {
     public static class UnityConfig
-    {
+    {   
         public static void RegisterComponents()
-        {
+        {           
 			var container = new UnityContainer();           
 
             var assemblies = BuildManager.GetReferencedAssemblies().Cast<Assembly>().ToArray();
