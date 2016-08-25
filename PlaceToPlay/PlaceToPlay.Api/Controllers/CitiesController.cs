@@ -1,10 +1,12 @@
-﻿using PlaceToPlay.Domain.Services.Abstract;
+﻿using System;
+using PlaceToPlay.Domain.Services.Abstract;
 using Swashbuckle.Swagger.Annotations;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using PlaceToPlay.Api.Infrastructure.Exceptions;
 
 namespace PlaceToPlay.Api.Controllers
 {
@@ -32,6 +34,7 @@ namespace PlaceToPlay.Api.Controllers
         [ResponseType(typeof(List<string>))]
         public HttpResponseMessage Get(int pageNumber=1, int pageSize = 10)
         {
+            throw new DomainOperationException("Test domain exception");
             var cities = _cityQueryService.Get(pageNumber, pageSize);
 
             return Request.CreateResponse(HttpStatusCode.OK, cities);

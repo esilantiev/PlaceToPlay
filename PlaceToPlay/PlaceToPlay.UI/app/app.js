@@ -3,13 +3,22 @@
 
     angular.module('app', [
         'ngRoute',
-        'cities'
-    ]).config(['$routeProvider', function($routeProvider) {
+        'cities',
+        'services'
+    ]).config(['$routeProvider', function ($routeProvider) {
         $routeProvider
+            .when('/',
+            {
+                templateUrl: '/app/components/cities/cities.html',
+                controller: 'citiesListController',
+                controllerAs: 'cities'
+                
+            })
             .when('/home',
             {
+                templateUrl: '/app/components/cities/cities.html',
                 controller: 'citiesListController',
-                template: '/app/components/cities/cities.html'
+                controllerAs: 'cities'
             });
     }]);
 

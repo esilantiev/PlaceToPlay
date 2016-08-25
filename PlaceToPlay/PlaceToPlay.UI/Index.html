@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <title>My AngularJS AngularJS + RequireJS App</title>
 </head>
-<body ng-controller="citiesListController as cities">
-<div>
-    {{cities.title}}
-</div>
+<body ng-controller="mainController as main">
+    <div>{{main.title}}</div>
+    <div ng-view="">
+
+    </div>
 
     <script src="libs/requirejs/require.js" data-main="app/main.js"></script>
 </body>

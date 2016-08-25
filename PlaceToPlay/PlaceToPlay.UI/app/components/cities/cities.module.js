@@ -1,5 +1,7 @@
 ﻿define(function() {
     'use strict';
 
-    angular.module('cities', []);
+    angular.module('cities', [
+        'services'
+    ]);
 });
