@@ -42,6 +42,9 @@
   <ItemGroup>
     <Compile Include="Abstract\ICityQueryService.cs" />
     <Compile Include="Abstract\ICityService.cs" />
+    <Compile Include="Contracts\CityDto.cs" />
+    <Compile Include="Contracts\Common\PageInfo.cs" />
+    <Compile Include="Contracts\Common\PageList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\CityQueryService.cs" />
   </ItemGroup>

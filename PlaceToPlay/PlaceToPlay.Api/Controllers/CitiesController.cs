@@ -29,12 +29,13 @@ namespace PlaceToPlay.Api.Controllers
         /// <param name="pageNumber">Number of requested page</param>
         /// <param name="pageSize">Elements quantity on page</param>
         /// <returns></returns>
+        [Authorize]
         [Route("")]
         [SwaggerResponse(HttpStatusCode.OK)]
         [ResponseType(typeof(List<string>))]
         public HttpResponseMessage Get(int pageNumber=1, int pageSize = 10)
         {
-            throw new DomainOperationException("Test domain exception");
+            //throw new DomainOperationException("Test domain exception");
             var cities = _cityQueryService.Get(pageNumber, pageSize);
 
             return Request.CreateResponse(HttpStatusCode.OK, cities);

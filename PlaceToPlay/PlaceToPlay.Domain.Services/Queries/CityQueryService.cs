@@ -4,16 +4,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PlaceToPlay.Domain.Services.Contracts;
+using PlaceToPlay.Domain.Services.Contracts.Common;
 
 namespace PlaceToPlay.Domain.Services.Queries
 {
     public class CityQueryService : ICityQueryService
     {
-        public IList<string> Get(int pageNumber, int pageSize)
+        public PageList<CityDto> Get(int pageNumber, int pageSize)
         {
-            var cities = new List<string> { "Chisinau", "Ialoveni", "Balti" };
+            var cities = new List<CityDto>
+            {
+                new CityDto {Name = "Chisinau"},
+                new CityDto { Name = "Ialoveni" },
+                new CityDto { Name = "Balti" },
+                new CityDto { Name = "Orhei" }
+            };
 
-            return cities;
+            var pagedList = new PageList<CityDto>
+            {
+                Data = cities,
+                PageInfo = new PageInfo
+                {
+                    PageNumber = pageNumber,
+                    PageSize = pageSize,
+                    TotalCount = 10
+                }
+            };
+
+            return pagedList;
         }
     }
 }

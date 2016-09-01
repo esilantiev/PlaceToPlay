@@ -9,7 +9,7 @@ namespace PlaceToPlay.Api
 {
     public static class UnityConfig
     {   
-        public static void RegisterComponents()
+        public static void RegisterComponents(HttpConfiguration config)
         {           
 			var container = new UnityContainer();           
 
@@ -21,7 +21,7 @@ namespace PlaceToPlay.Api
                 WithName.Default,
                 WithLifetime.Transient);            
 
-            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+            config.DependencyResolver = new UnityDependencyResolver(container);
         }
     }
 }

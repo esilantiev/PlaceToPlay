@@ -2,6 +2,8 @@
 using PlaceToPlay.Api.Infrastructure.Logging;
 using System.Web.Http;
 using System.Web.Http.ExceptionHandling;
+using Microsoft.Owin.Security.OAuth;
+using PlaceToPlay.Api.Infrastructure.Filters;
 
 namespace PlaceToPlay.Api
 {
@@ -12,8 +14,13 @@ namespace PlaceToPlay.Api
             config.Services.Add(typeof(IExceptionLogger), new NLogExceptionLogger());
             // Web API configuration and services
 
+            config.SuppressDefaultHostAuthentication();
+            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+
             // Web API routes
             config.MapHttpAttributeRoutes();
+
+            config.Filters.Add(new DomainOperationExceptionAttribute());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

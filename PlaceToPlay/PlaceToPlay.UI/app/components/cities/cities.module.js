@@ -2,6 +2,7 @@
     'use strict';
 
     angular.module('cities', [
-        'services'
+        'services',
+        'ngTable'
     ]);
 });
