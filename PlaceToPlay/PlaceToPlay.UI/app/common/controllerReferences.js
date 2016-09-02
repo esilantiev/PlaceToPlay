@@ -1,8 +1,9 @@
 ﻿define(function () {
     return [
-        //'services/api.service',
+        'components/authentication/login.controller',
         'components/main.controller',
         'components/cities/cities-list.controller'
+        
         
     ];
 });

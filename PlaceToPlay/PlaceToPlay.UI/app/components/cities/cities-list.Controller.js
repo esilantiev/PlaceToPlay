@@ -1,5 +1,8 @@
 ﻿define(function () {
-    angular.module('cities')
+    'use strict';
+
+    angular
+        .module('cities')
         .controller('citiesListController', citiesListController);
 
     citiesListController.$inject = ['$scope', 'NgTableParams', 'apiService', 'errorService'];

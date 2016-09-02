@@ -8,16 +8,15 @@
     authService.$inject = ['$http', '$q', 'localStorageService'];
 
     function authService($http, $q, localStorageService) {
+
+        var serviceBase = 'http://localhost:27255/';
+
         var authServiceFactory = {};
         authServiceFactory.saveRegistration = saveRegistration;
-        authServiceFactory.login = login;
+        this.login = login;
         authServiceFactory.logOut = logOut;
         authServiceFactory.fillAuthData = fillAuthData;
-        authServiceFactory.authentication = authentication;
-
-        var serviceBase = 'http://ngauthenticationapi.azurewebsites.net/';
-
-        var authentication = {
+        authServiceFactory.authentication = {
             isAuth: false,
             userName: ""
         };
@@ -38,17 +37,18 @@
 
             var deferred = $q.defer();
 
-            $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
+            $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+                .success(function (response) {
 
                 localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName });
 
-                authentication.isAuth = true;
-                authentication.userName = loginData.userName;
+                authServiceFactory.authentication.isAuth = true;
+                authServiceFactory.authentication.userName = loginData.userName;
 
                 deferred.resolve(response);
 
             }).error(function (err, status) {
-                logOut();
+                //logOut();
                 deferred.reject(err);
             });
 
