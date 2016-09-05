@@ -13,28 +13,30 @@
         vm.cities = [];
         vm.errorMessages = {};
 
+        //var authorizationData = localStorageService.get('authorizationData');
+
         apiService.get('cities', '')
                    .then(function (response) {
-                       vm.tableParams = getNgTableParams(response.data.Data);
+                       vm.cities = response.data.Data;
                    }).catch(function (response) {
                        vm.errorMessages = errorService.parseError(response.data);
                    }).finally(function () {
                        //$scope.apply();
                    });;
 
-        function getNgTableParams(data) {
-            return new NgTableParams(
-                {
-                    page: 1,
-                    count: 5,
-                    sorting: {
-                        Name: 'asc'
-                    }
-                },
-                {
-                    data: data
-                });
-        }
+        //function getNgTableParams(data) {
+        //    return new NgTableParams(
+        //        {
+        //            page: 1,
+        //            count: 5,
+        //            sorting: {
+        //                Name: 'asc'
+        //            }
+        //        },
+        //        {
+        //            getData: data
+        //        });
+        //}
 
         vm.test = 'test';
     };

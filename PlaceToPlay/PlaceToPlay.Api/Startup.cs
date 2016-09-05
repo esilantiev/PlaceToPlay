@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
@@ -19,6 +20,7 @@ namespace PlaceToPlay.Api
             UnityConfig.RegisterComponents(config);
             ConfigureOAuth(app);
             WebApiConfig.Register(config);
+            config.EnableCors(new EnableCorsAttribute("*", "*", "GET, POST, OPTIONS, PUT, DELETE"));
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
         }

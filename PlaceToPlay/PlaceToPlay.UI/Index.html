@@ -3,19 +3,23 @@
 <head>
     <meta charset="utf-8">
     <title>My AngularJS AngularJS + RequireJS App</title>
-    <link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="shared/css/Site.css" rel="stylesheet" />
 </head>
 <body ng-controller="mainController as main">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
+                <!--<span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
+                <span class="icon-bar"></span>-->
             </button>
             <a class="navbar-brand" href="#/">Home</a>
             <a class="navbar-brand" href="#/cities">Cities</a>
+            <a class="navbar-brand" href="#/login">Login</a>
+            <a class="navbar-brand" ng-click="main.logOut()" href="">Logout</a>
 
         </div>
     </nav>

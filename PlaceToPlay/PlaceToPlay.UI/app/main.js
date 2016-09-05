@@ -11,6 +11,7 @@
         'apiService': 'services/api.service',
         'errorService': 'services/error.service',
         'authService': 'services/auth.service',
+        'authInterseptorService': 'services/auth-interceptor.service',
         'cities': 'components/cities/cities.module',
         'auth': 'components/authentication/auth.module',
         'services': 'services/service.module'
@@ -28,13 +29,17 @@
                 'errorService',
                 'authService',
                 'ng-table',
-                'angular-local-storage'
+                'angular-local-storage',
+                'authInterseptorService'
             ]
         },
         'services': {
             deps: ['angular-route']
         },
         'apiService': {
+            deps: ['angular-route']
+        },
+        'authInterseptorService': {
             deps: ['angular-route']
         },
         'errorService': {

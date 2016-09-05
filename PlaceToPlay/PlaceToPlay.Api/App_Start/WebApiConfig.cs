@@ -1,6 +1,7 @@
 ﻿using System.Net.Http.Headers;
 using PlaceToPlay.Api.Infrastructure.Logging;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.ExceptionHandling;
 using Microsoft.Owin.Security.OAuth;
 using PlaceToPlay.Api.Infrastructure.Filters;

@@ -15,7 +15,7 @@
 
         function get(controllerName, methodName) {
             var defer = $q.defer();
-
+            //$http.defaults.headers.common.Authorization = token;
             return $http.get('http://localhost:27255/api/' + controllerName + '/' + methodName);
             //.then(function (response) {
             //    defer.resolve(response.data);

@@ -12,14 +12,20 @@
         var serviceBase = 'http://localhost:27255/';
 
         var authServiceFactory = {};
-        authServiceFactory.saveRegistration = saveRegistration;
+        this.saveRegistration = saveRegistration;
         this.login = login;
-        authServiceFactory.logOut = logOut;
-        authServiceFactory.fillAuthData = fillAuthData;
-        authServiceFactory.authentication = {
-            isAuth: false,
-            userName: ""
-        };
+        this.logOut = logOut;
+        this.fillAuthData = fillAuthData;
+        var authentication = {};
+        authentication.isAuth = false;
+        authentication.userName = "";
+        
+        //authentication.isAuth = false;
+        //this.authentication.userName = "";
+
+        //authServiceFactory.authentication.isAuth = false;
+        //authServiceFactory.authentication.userName = "";
+
 
         function saveRegistration(registration) {
 
@@ -40,17 +46,17 @@
             $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
                 .success(function (response) {
 
-                localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName });
+                    localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName });
 
-                authServiceFactory.authentication.isAuth = true;
-                authServiceFactory.authentication.userName = loginData.userName;
+                    authentication.isAuth = true;
+                    authentication.userName = loginData.userName;
 
-                deferred.resolve(response);
+                    deferred.resolve(response);
 
-            }).error(function (err, status) {
-                //logOut();
-                deferred.reject(err);
-            });
+                }).error(function (err, status) {
+                    logOut();
+                    deferred.reject(err);
+                });
 
             return deferred.promise;
 

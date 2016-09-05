@@ -2,9 +2,12 @@
     {{cities.title}}
 </div>
 <div>
-    <table ng-table="cities.tableParams" show-filter="true" class="table table-bordered table-striped">
-        <tr ng-repeat="city in $data">
-            <td title="'City'" filter="{'Name':'text'}">{{city.Name}}</td>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>City</tr>
+        </thead>
+        <tr ng-repeat="city in cities.cities">
+            <td>{{city.Name}}</td>
         </tr>
     </table>
 </div>
