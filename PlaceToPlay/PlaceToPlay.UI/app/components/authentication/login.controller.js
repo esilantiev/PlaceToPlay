@@ -14,17 +14,23 @@
             userName: '',
             password: ''
         }
-        vm.message = '';
+        vm.serverErrors = '';
 
         vm.login = login;
 
-        function login() {
-            authService.login(vm.loginData)
-                .then(function () {
-                    $location.path('/cities');
-                },
-                    function (err) {
-                        vm.message = err.error_description;
+        function login(isValid) {
+            vm.errorMessage = '';
+            if (isValid)
+                authService.login(vm.loginData)
+                    .then(function () {
+                        $location.path('/cities');
+                    },
+                        function (err) {
+                            vm.serverErrors = err.error_description;
+                            $scope.loginForm.password.$setValidity('wronglogin', false);
+                        })
+                    .finally(function () {
+                        $scope.$emit('isAuthorized');
                     });
         };
     };

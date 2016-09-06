@@ -16,6 +16,7 @@
         this.login = login;
         this.logOut = logOut;
         this.fillAuthData = fillAuthData;
+        this.getAuthData = getAuthData;
         var authentication = {};
         authentication.isAuth = false;
         authentication.userName = "";
@@ -70,6 +71,11 @@
             authentication.userName = "";
 
         };
+
+        function getAuthData() {
+            fillAuthData();
+            return authentication;
+        }
 
         function fillAuthData() {
 

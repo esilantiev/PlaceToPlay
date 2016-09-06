@@ -7,13 +7,19 @@
     function mainController($scope, $location, authService) {
         var vm = this;
         vm.title = 'Hello from main controller';
-        vm.button = 'Main';
+        vm.isAuthorized = authService.getAuthData().isAuth;
+
+        $scope.$on('isAuthorized',
+            function() {
+                vm.isAuthorized = authService.getAuthData().isAuth;
+            });
+
         vm.logOut = logOut;
 
-        //vm.isAuthorized = authService.authentication.isAuth;
         function logOut() {
             authService.logOut();
-            $location.path('/');
+            vm.isAuthorized = authService.getAuthData().isAuth;
+            $location.path('/login');
         };
 
     };
