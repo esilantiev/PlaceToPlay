@@ -14,20 +14,20 @@
             userName: '',
             password: ''
         }
-        vm.serverErrors = '';
+        vm.serverErrors = [];
 
         vm.login = login;
 
         function login(isValid) {
-            vm.errorMessage = '';
+            vm.serverErrors.length = 0;
             if (isValid)
                 authService.login(vm.loginData)
                     .then(function () {
                         $location.path('/cities');
                     },
                         function (err) {
-                            vm.serverErrors = err.error_description;
-                            $scope.loginForm.password.$setValidity('wronglogin', false);
+                            vm.serverErrors.push(err.error_description);
+                            //$scope.loginForm.password.$setValidity('wronglogin', false);
                         })
                     .finally(function () {
                         $scope.$emit('isAuthorized');

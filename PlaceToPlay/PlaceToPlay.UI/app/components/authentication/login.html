@@ -1,5 +1,5 @@
 ﻿<div class="container">
-    <form name="loginForm" class="form-signin" ng-submit="login.login(login.loginForm.$valid)" novalidate>
+    <form name="loginForm" class="form-signin" ng-submit="login.login(loginForm.$valid)" novalidate>
         <h2 class="form-signin-heading">Please sign in</h2>
         <div class="form-group" ng-class="{'has-error': loginForm.username.$invalid && !loginForm.username.$pristine}">
             <label for="inputEmail">Email address</label>
@@ -14,13 +14,14 @@
             <span ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block">Please enter password</span>
         </div>
 
-        <div class="error" >
-            <span ng-show="!loginForm.password.$error.wronglogin && loginForm.$submitted" class="help-block">{{login.serverError}}</span>
+        <div class="alert alert-danger" ng-show="login.serverErrors.length">
+            <ul class="list-unstyled">
+                <li ng-repeat="error in login.serverErrors">{{error}}</li>
+            </ul>
         </div>
         <!--<div ng-class="{'has-error': loginForm.$submitted}" ng-messages="login.serverErrors" ng-show="loginForm.$submitted" ng-cloak>
             <span ng-message="emailexists" class="help-block">{{login.serverErrors}}</span>
         </div>-->
-        <span>Login:{{loginForm.password.$error.wronglogin}}</span>
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
