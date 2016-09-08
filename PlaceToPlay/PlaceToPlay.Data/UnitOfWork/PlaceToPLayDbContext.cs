@@ -6,11 +6,21 @@ namespace PlaceToPlay.Data.UnitOfWork
 {
     public class PlaceToPLayDbContext : BaseDbContext
     {
-        public PlaceToPLayDbContext(string nameOrConnectionString) 
+        public PlaceToPLayDbContext()
+            : base("Name=PlaceToPlay")
+        {
+
+        }
+        public PlaceToPLayDbContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
         {
             Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = false;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

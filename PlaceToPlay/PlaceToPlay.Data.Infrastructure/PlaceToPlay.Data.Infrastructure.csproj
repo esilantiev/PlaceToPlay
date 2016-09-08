@@ -54,6 +54,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitOfWork\BaseDbContext\BaseDbContext.cs" />
     <Compile Include="UnitOfWork\BaseDbContext\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWorkFactory.cs" />
+    <Compile Include="UnitOfWork\UnitOfWorkFactoryBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -3,6 +3,8 @@ using System.Linq;
 using System.Reflection;
 using System.Web.Compilation;
 using System.Web.Http;
+using Microsoft.Owin.Security.OAuth;
+using PlaceToPlay.Api.Providers;
 using Unity.WebApi;
 
 namespace PlaceToPlay.Api
@@ -19,7 +21,9 @@ namespace PlaceToPlay.Api
                 AllClasses.FromAssemblies(assemblies),
                 WithMappings.FromMatchingInterface,
                 WithName.Default,
-                WithLifetime.Transient);            
+                WithLifetime.Transient);
+
+            container.RegisterType<OAuthAuthorizationServerProvider, AuthorizationServerProvider>();
 
             config.DependencyResolver = new UnityDependencyResolver(container);
         }
