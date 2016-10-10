@@ -18,6 +18,7 @@
                        vm.cities = response.data.Data;
                    }).catch(function (response) {
                        vm.errorMessages = errorService.parseError(response.data);
+                       authService.logOut();
                    }).finally(function () {
                        
                    });

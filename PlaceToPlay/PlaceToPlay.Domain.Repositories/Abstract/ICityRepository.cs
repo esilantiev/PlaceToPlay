@@ -7,7 +7,7 @@ using PlaceToPlay.Domain.Models.Cities;
 
 namespace PlaceToPlay.Domain.Repositories.Abstract
 {
-    public interface ICityRepository : IRepository<City>
+    public interface ICityRepository : IRepository<City>, IDisposable
     {
     }
 }

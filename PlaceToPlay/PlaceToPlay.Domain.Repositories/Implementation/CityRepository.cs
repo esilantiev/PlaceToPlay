@@ -16,6 +16,11 @@ namespace PlaceToPlay.Domain.Repositories.Implementation
         {
             
         }
+
+        //new void Dispose()
+        //{
+        //    base.Dispose();
+        //}
         
     }
 }

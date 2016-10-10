@@ -49,6 +49,7 @@
     <Compile Include="Queries\CityQueryService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
@@ -59,10 +60,6 @@
     <ProjectReference Include="..\PlaceToPlay.Domain.Models\PlaceToPlay.Domain.Models.csproj">
       <Project>{efcf8d23-d2bd-4da5-9a06-74f4636fea7a}</Project>
       <Name>PlaceToPlay.Domain.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PlaceToPlay.Domain.Repositories\PlaceToPlay.Domain.Repositories.csproj">
-      <Project>{4de030d7-d72e-4c31-8c59-3134d5626266}</Project>
-      <Name>PlaceToPlay.Domain.Repositories</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

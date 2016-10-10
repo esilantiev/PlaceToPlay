@@ -31,7 +31,7 @@ namespace PlaceToPlay.Api
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(1),
                 Provider = new AuthorizationServerProvider()
             };
 

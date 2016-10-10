@@ -7,13 +7,16 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using PlaceToPlay.Api.Infrastructure.Exceptions;
+using PlaceToPlay.Api.Models;
+using PlaceToPlay.Api.Infrastructure.Routing;
 
 namespace PlaceToPlay.Api.Controllers
 {
     /// <summary>
     /// Provides API methods to manage cities
     /// </summary>
-    [RoutePrefix("api/cities")]
+    //[ApiVersion1RoutePrefix("cities")]
+    [RoutePrefix("api/cities")]    
     public class CitiesController : ApiController
     {
         private readonly ICityQueryService _cityQueryService;
@@ -39,6 +42,32 @@ namespace PlaceToPlay.Api.Controllers
             var cities = _cityQueryService.Get(pageNumber, pageSize);
 
             return Request.CreateResponse(HttpStatusCode.OK, cities);
+        }
+
+        [Route("{id:int:max(5)}")]       
+        public HttpResponseMessage Get(int id)
+        {          
+
+            return Request.CreateResponse(HttpStatusCode.OK,"ID: 12312312");
+        }
+
+        [Route("{name:alpha}")]
+        public HttpResponseMessage Get(string name)
+        {
+
+            return Request.CreateResponse(HttpStatusCode.OK, "Name: test");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="cityCreationModel"></param>
+        /// <returns></returns>
+        [Route("")]        
+        public HttpResponseMessage Post(HttpRequestMessage request, CityCreationModel cityCreationModel)
+        {
+            return Request.CreateResponse(HttpStatusCode.Created);
         }
     }
 }

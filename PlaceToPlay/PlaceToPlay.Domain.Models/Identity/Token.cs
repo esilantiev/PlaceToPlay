@@ -10,15 +10,14 @@ namespace PlaceToPlay.Domain.Models.Identity
 {
     public class Token : Entity
     {
-        //public TokenType TokenType { get; set; }
-        
-        public string SubjectId { get; set; }
+        //public TokenType TokenType { get; set; }    
        
-        public string UserId { get; set; }
+        public string Key { get; set; }        
         
-        [DataType(DataType.Text)]
-        public string JsonCode { get; set; }
+        public string Type { get; set; }
         
         public DateTimeOffset Expiry { get; set; }
+
+        public User User { get; set; }
     }
 }

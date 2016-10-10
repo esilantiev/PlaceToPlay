@@ -16,7 +16,6 @@
                     templateUrl: '/app/components/main/main.html',
                     controller: 'mainController',
                     controllerAs: 'main'
-
                 })
                 .when('/login',
                 {

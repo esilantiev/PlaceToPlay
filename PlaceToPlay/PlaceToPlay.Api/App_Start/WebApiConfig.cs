@@ -5,6 +5,9 @@ using System.Web.Http.Cors;
 using System.Web.Http.ExceptionHandling;
 using Microsoft.Owin.Security.OAuth;
 using PlaceToPlay.Api.Infrastructure.Filters;
+using System.Web.Http.Routing;
+using PlaceToPlay.Api.Infrastructure.Routing;
+using System.Web.Http.Dispatcher;
 
 namespace PlaceToPlay.Api
 {
@@ -12,11 +15,20 @@ namespace PlaceToPlay.Api
     {
         public static void Register(HttpConfiguration config)
         {
+            //var constraintsResolver = new DefaultInlineConstraintResolver();
+            //constraintsResolver.ConstraintMap.Add("apiVersionConstraint", typeof(ApiVersionConstraint));
+            //config.MapHttpAttributeRoutes(constraintsResolver);
+
+            //config.Services.Replace(typeof(IHttpControllerSelector),
+            //    new NamespaceHttpControllerSelector(config));
+
             config.Services.Add(typeof(IExceptionLogger), new NLogExceptionLogger());
             // Web API configuration and services
 
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+
+
 
             // Web API routes
             config.MapHttpAttributeRoutes();
